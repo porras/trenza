@@ -1,0 +1,7 @@
+# Trenza
+
+Pending work: everything. Namely:
+
+* Write this README
+* Test everything
+* Settle on an API and decide if `trenza` is going to provide both lazy and parallel or only parallel
