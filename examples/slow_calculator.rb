@@ -1,4 +1,5 @@
 require 'trenza'
+require 'benchmark'
 
 class Calculator
   def add(a, b)
@@ -20,7 +21,6 @@ def try(calc)
   g.to_s
 end
 
-require 'benchmark'
 
 Benchmark.bm(10) do |bm|
   bm.report("Regular")  { try Calculator.new          }

@@ -1,4 +1,6 @@
 require 'open-uri'
+require 'trenza'
+
 
 class Download
   def initialize(url)
@@ -9,8 +11,6 @@ class Download
     open(@url).read.size
   end
 end
-
-require 'trenza'
 
 urls = [
   'http://google.es',
