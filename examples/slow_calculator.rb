@@ -1,4 +1,4 @@
-require '../lib/trenza'
+require 'trenza'
 
 class Calculator
   def add(a, b)

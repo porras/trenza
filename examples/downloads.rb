@@ -6,14 +6,11 @@ class Download
   end
   
   def size
-    puts "\nDownloading #{@url}\n"
-    s = open(@url).read.size
-    puts "\nDone downloading #{@url}\n"
-    s
+    open(@url).read.size
   end
 end
 
-require '../lib/trenza'
+require 'trenza'
 
 urls = [
   'http://google.es',
@@ -21,6 +18,5 @@ urls = [
   'http://bebanjo.com'
 ]
 
-sizes = urls.map { |url| Download.new(url).parallel.size }
+puts urls.map { |url| Download.new(url).parallel.size }.reduce(:+)
 
-p sizes
