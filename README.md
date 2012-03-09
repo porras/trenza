@@ -1,4 +1,4 @@
-# Trenza
+# Trenza [![Build Status](https://secure.travis-ci.org/porras/trenza.png?branch=master)](http://travis-ci.org/porras/trenza)
 
 Trenza is the spanish word for *braid* or *plait*.
 

@@ -22,6 +22,7 @@ describe Trenza::Parallel do
 
   it 'should work in parallel' do
     wadus = parallel.wadus
+    sleep 0.1
     parallel.wadus_started.should be_true
     parallel.wadus_finished.should_not be_true
     wadus.should == :wadus
