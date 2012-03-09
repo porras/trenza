@@ -2,15 +2,21 @@ require 'spec_helper'
 
 describe Trenza::Parallel do
   
+  SLEEP_FACTOR = 0.01
+  
   class DummyForParallel
 
     attr_reader :wadus_started, :wadus_finished
     
     def wadus
       @wadus_started = true
-      sleep 0.2
+      sleep 2 * SLEEP_FACTOR
       @wadus_finished = true
       :wadus
+    end
+    
+    def chain
+      DummyForParallel.new
     end
   end
   
@@ -21,12 +27,20 @@ describe Trenza::Parallel do
   end
 
   it 'should work in parallel' do
-    wadus = parallel.wadus
-    sleep 0.1
-    parallel.wadus_started.should be_true
-    parallel.wadus_finished.should_not be_true
+    check_parallelism parallel
+  end
+  
+  it 'should return parallel objects' do
+    check_parallelism parallel.chain
+  end
+  
+  def check_parallelism(dummy)
+    wadus = dummy.wadus
+    sleep SLEEP_FACTOR
+    dummy.wadus_started.should be_true
+    dummy.wadus_finished.should_not be_true
     wadus.should == :wadus
-    parallel.wadus_finished.should be_true
+    dummy.wadus_finished.should be_true
   end
   
 end

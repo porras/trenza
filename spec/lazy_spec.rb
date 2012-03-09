@@ -10,6 +10,10 @@ describe Trenza::Lazy do
       @wadus_called = true
       :wadus
     end
+    
+    def chain
+      DummyForLazy.new
+    end
   end
   
   let(:lazy) { DummyForLazy.new.lazy }
@@ -19,10 +23,18 @@ describe Trenza::Lazy do
   end
   
   it 'should not do anything until needed' do
-    wadus = lazy.wadus
-    lazy.wadus_called.should_not be_true
+    check_lazyness lazy
+  end
+  
+  it 'should return lazy objects' do
+    check_lazyness lazy.chain
+  end
+  
+  def check_lazyness(dummy)
+    wadus = dummy.wadus
+    dummy.wadus_called.should_not be_true
     wadus.should == :wadus
-    lazy.wadus_called.should be_true
+    dummy.wadus_called.should be_true
   end
   
 end

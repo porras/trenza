@@ -24,7 +24,7 @@ module Trenza
       end
     
       def value
-        @value ||= @block.call
+        @value ||= @block.call.lazy
       end
     end
   end

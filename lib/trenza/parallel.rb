@@ -20,7 +20,7 @@ module Trenza
       end
     
       def method_missing(meth, *args, &blk)
-        @thread.value.send(meth, *args, &blk)
+        @thread.value.send(meth, *args, &blk).parallel
       end
     end
   end
