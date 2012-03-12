@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = 'trenza'
-  s.version           = '0.1.0'
+  s.version           = '0.2.0'
   s.summary           = 'Adds laziness & parallelism to any Ruby object in a transparent way'
   s.author            = 'Sergio Gil'
   s.email             = 'sgilperez@gmail.com'
